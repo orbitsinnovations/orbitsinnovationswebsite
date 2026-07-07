@@ -2,7 +2,7 @@ export const processSteps = [
   {
     step: 1,
     title: "Consultation",
-    description: "We learn about your business, goals, and current challenges in a free discovery session.",
+    description: "We learn about your business, goals, and current challenges in a discovery session.",
   },
   {
     step: 2,

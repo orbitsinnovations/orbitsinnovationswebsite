@@ -42,7 +42,7 @@ export function ServicePageLayout({ service }: { service: ServiceDetail }) {
                 href="/contact"
                 className={cn(buttonVariants({ variant: "outline", size: "lg" }))}
               >
-                Free Consultation
+                Consultation
               </Link>
             </div>
           </ScrollReveal>
@@ -266,7 +266,7 @@ export function ServicePageLayout({ service }: { service: ServiceDetail }) {
       </section>
 
       {/* Testimonials */}
-      <TestimonialsSection filterSlug={service.slug} limit={3} />
+      <TestimonialsSection filterSlug={service.slug} limit={2} />
 
       {/* Related Services */}
       <section className="bg-secondary py-20 lg:py-28">

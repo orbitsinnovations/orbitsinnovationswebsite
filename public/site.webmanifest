@@ -1,0 +1,28 @@
+{
+  "name": "Orbits Innovations — ERP & Business Automation Mauritius",
+  "short_name": "Orbits Innovations",
+  "description": "Digital transformation company in Mauritius. ERP (MoLedger), WhatsApp automation, POS, e-commerce & custom software.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4ade80",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/icon",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-icon",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/orbitsinnovationslogolight.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

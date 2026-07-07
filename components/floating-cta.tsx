@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { MessageCircle, ArrowUp } from "lucide-react"
+import { getWhatsAppLink } from "@/lib/contact"
 import { cn } from "@/lib/utils"
 
 export function FloatingCta() {
@@ -22,7 +23,7 @@ export function FloatingCta() {
       )}
     >
       <a
-        href="https://wa.me/23057833020"
+        href={getWhatsAppLink()}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"

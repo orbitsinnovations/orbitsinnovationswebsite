@@ -1,76 +1,62 @@
 import Image from "next/image"
 import { Workflow, TrendingUp, ShieldCheck, Repeat } from "lucide-react"
+import { ScrollReveal } from "@/components/scroll-reveal"
 
 const points = [
-  {
-    icon: Workflow,
-    title: "Less manual work",
-    text: "Automate repetitive tasks across teams and tools.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Better operations",
-    text: "Real-time data and reporting in one place.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Built to trust",
-    text: "Secure, reliable systems your team can rely on.",
-  },
-  {
-    icon: Repeat,
-    title: "Ready to scale",
-    text: "Solutions that grow with your business.",
-  },
+  { icon: Workflow, title: "Less manual work" },
+  { icon: TrendingUp, title: "Real-time insights" },
+  { icon: ShieldCheck, title: "Secure & reliable" },
+  { icon: Repeat, title: "Built to scale" },
 ]
 
 export function WhyUs() {
   return (
-    <section id="why" className="scroll-mt-20 bg-secondary py-20 lg:py-28">
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-        <div className="relative order-2 lg:order-1">
-          <div className="absolute -left-4 -top-4 h-24 w-24 animate-orbit-slow rounded-full border border-dashed border-primary/30" />
-          <div className="relative overflow-hidden rounded-3xl border border-border bg-card shadow-xl">
-            <Image
-              src="/whatsapp-automation.png"
-              alt="WhatsApp business automation chat interface with automated replies"
-              width={900}
-              height={900}
-              className="h-full w-full object-cover"
-            />
-          </div>
-        </div>
-
-        <div className="order-1 lg:order-2">
-          <span className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
-            Why Orbits Innovations
-          </span>
-          <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-balance text-foreground sm:text-4xl">
-            Practical digital solutions that help businesses grow with confidence
-          </h2>
-          <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
-            We create systems that reduce manual work and improve operations —
-            each one tailored to your workflow, goals, and future expansion.
-          </p>
-
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
-            {points.map((p) => (
-              <div
-                key={p.title}
-                className="rounded-2xl border border-border bg-card p-5"
-              >
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent text-primary">
-                  <p.icon className="h-5 w-5" />
-                </div>
-                <h3 className="mt-4 font-heading text-base font-semibold text-foreground">
-                  {p.title}
-                </h3>
-                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                  {p.text}
-                </p>
+    <section id="why" className="scroll-mt-24 py-20 lg:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+          <ScrollReveal className="mx-auto w-full max-w-lg lg:max-w-none">
+            <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-border bg-[#eef0f3] p-3 shadow-lg sm:p-4">
+              <div className="relative h-full w-full overflow-hidden rounded-xl">
+                <Image
+                  src="/dashboard-mockup.png"
+                  alt="Business management dashboard — ERP and automation software by Orbits Innovations"
+                  fill
+                  loading="lazy"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-contain"
+                />
               </div>
-            ))}
-          </div>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={80}>
+            <div className="text-center lg:text-left">
+              <span className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+                Why Choose Us
+              </span>
+              <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+                Why businesses in Mauritius choose Orbits Innovations
+              </h2>
+              <p className="mx-auto mt-4 max-w-md text-muted-foreground lg:mx-0">
+                Tailored ERP, automation, and software solutions that reduce manual work and connect
+                every part of your operations.
+              </p>
+            </div>
+
+            <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
+              {points.map((p) => (
+                <div
+                  key={p.title}
+                  className="flex items-center gap-3 rounded-xl border border-border bg-card p-4"
+                >
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-accent text-primary">
+                    <p.icon className="h-4 w-4" />
+                  </div>
+                  <span className="text-sm font-medium text-foreground">{p.title}</span>
+                </div>
+              ))}
+            </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

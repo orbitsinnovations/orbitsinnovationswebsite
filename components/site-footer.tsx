@@ -1,7 +1,8 @@
 import Link from "next/link"
 import { Mail, Phone } from "lucide-react"
 import { OrbitLogo } from "@/components/orbit-logo"
-import { mainNavLinks, serviceLinks } from "@/lib/navigation"
+import { mainNavLinks } from "@/lib/navigation"
+import { CONTACT, getEmailLinkPlain, getWhatsAppLinkPlain, SOCIAL_PROFILES } from "@/lib/contact"
 
 function FacebookIcon({ className }: { className?: string }) {
   return (
@@ -29,62 +30,53 @@ function TikTokIcon({ className }: { className?: string }) {
   )
 }
 
-const socials = [
-  { icon: FacebookIcon, label: "Facebook", href: "#" },
-  { icon: InstagramIcon, label: "Instagram", href: "#" },
-  { icon: TikTokIcon, label: "TikTok", href: "#" },
+const socialIcons = {
+  Facebook: FacebookIcon,
+  Instagram: InstagramIcon,
+  TikTok: TikTokIcon,
+} as const
+
+const legalLinks = [
+  { label: "Privacy Policy", href: "/privacy" },
+  { label: "Terms & Conditions", href: "/terms" },
 ]
 
 export function SiteFooter() {
   return (
     <footer className="border-t border-border bg-secondary">
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-        <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
-          <div>
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="sm:col-span-2 lg:col-span-1">
             <OrbitLogo />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
-              Professional digital transformation solutions. Innovate. Automate. Elevate.
+              Digital transformation for growing businesses in Mauritius and beyond.
             </p>
-            <div className="mt-5 flex gap-3">
-              {socials.map((s) => (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  aria-label={s.label}
-                  className="flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-card text-foreground transition-colors hover:bg-primary hover:text-primary-foreground"
-                >
-                  <s.icon className="h-4 w-4" />
-                </a>
-              ))}
+            <div className="mt-5 flex gap-2">
+              {SOCIAL_PROFILES.map((s) => {
+                const Icon = socialIcons[s.label]
+                return (
+                  <a
+                    key={s.label}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={s.label}
+                    className="flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-card text-foreground transition-colors hover:bg-primary hover:text-primary-foreground"
+                  >
+                    <Icon className="h-4 w-4" />
+                  </a>
+                )
+              })}
             </div>
           </div>
 
           <div>
-            <h3 className="font-heading text-sm font-semibold text-foreground">Quick Links</h3>
+            <h3 className="font-heading text-sm font-semibold text-foreground">Navigation</h3>
             <ul className="mt-4 space-y-2.5">
               {mainNavLinks.map((l) => (
                 <li key={l.label}>
-                  <Link
-                    href={l.href}
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                  >
+                  <Link href={l.href} className="text-sm text-muted-foreground transition-colors hover:text-foreground">
                     {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="font-heading text-sm font-semibold text-foreground">Services</h3>
-            <ul className="mt-4 space-y-2.5">
-              {serviceLinks.map((s) => (
-                <li key={s.slug}>
-                  <Link
-                    href={`/services/${s.slug}`}
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                  >
-                    {s.label}
                   </Link>
                 </li>
               ))}
@@ -96,33 +88,39 @@ export function SiteFooter() {
             <ul className="mt-4 space-y-3">
               <li>
                 <a
-                  href="https://wa.me/23057833020"
+                  href={getWhatsAppLinkPlain()}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  <Phone className="h-4 w-4 text-primary" />
-                  +230 57833020
+                  <Phone className="h-4 w-4 shrink-0 text-primary" />
+                  {CONTACT.phone}
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:orbitsinnovations@gmail.com"
+                  href={getEmailLinkPlain()}
                   className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  <Mail className="h-4 w-4 text-primary" />
-                  orbitsinnovations@gmail.com
+                  <Mail className="h-4 w-4 shrink-0 text-primary" />
+                  {CONTACT.email}
                 </a>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-border pt-6 sm:flex-row">
-          <p className="text-xs text-muted-foreground">
+        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 sm:flex-row">
+          <p className="text-center text-xs text-muted-foreground sm:text-left">
             &copy; {new Date().getFullYear()} Orbits Innovations. All rights reserved.
           </p>
-          <p className="text-xs text-muted-foreground">Innovate. Automate. Elevate.</p>
+          <div className="flex flex-wrap justify-center gap-4">
+            {legalLinks.map((l) => (
+              <Link key={l.href} href={l.href} className="text-xs text-muted-foreground transition-colors hover:text-foreground">
+                {l.label}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </footer>

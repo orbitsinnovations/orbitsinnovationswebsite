@@ -11,7 +11,7 @@ const faqs = [
   },
   {
     q: "Can you tailor a system to our exact workflow?",
-    a: "Yes. Every solution is built around your workflow, goals, and future expansion. We start with a free consultation to map your needs.",
+    a: "Yes. Every solution is built around your workflow, goals, and future expansion. We start with a consultation to map your needs.",
   },
   {
     q: "Do your systems work together?",

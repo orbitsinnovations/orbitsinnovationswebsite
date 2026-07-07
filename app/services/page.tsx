@@ -7,11 +7,20 @@ import { OrbitalBackground } from "@/components/orbital-background"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { CtaContact } from "@/components/cta-contact"
 
-export const metadata: Metadata = {
-  title: "Services — Orbits Innovations",
+import { pageMetadata } from "@/lib/seo"
+
+export const metadata: Metadata = pageMetadata({
+  title: "Business Software Services Mauritius",
   description:
-    "Explore our core business solutions: ERP, WhatsApp automation, POS, branding, booking systems, custom software, and e-commerce.",
-}
+    "Explore Orbits Innovations services: MoLedger ERP, WhatsApp automation, POS systems, e-commerce, booking platforms, branding, and custom software.",
+  path: "/services",
+  keywords: [
+    "business software services Mauritius",
+    "ERP services",
+    "WhatsApp automation services",
+    "POS installation Mauritius",
+  ],
+})
 
 export default function ServicesPage() {
   return (
