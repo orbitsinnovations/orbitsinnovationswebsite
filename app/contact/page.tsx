@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils"
 export const metadata: Metadata = pageMetadata({
   title: "Contact — Business Consultation",
   description:
-    "Contact Orbits Innovations for a consultation on ERP, WhatsApp automation, POS, and custom software in Mauritius. WhatsApp +230 57833020.",
+    "Contact Orbits Innovations for a consultation on ERP, WhatsApp automation, POS, and custom software in Mauritius. WhatsApp +230 58355940.",
   path: "/contact",
   keywords: ["contact Orbits Innovations", "IT consultation Mauritius", "ERP quote Mauritius"],
 })

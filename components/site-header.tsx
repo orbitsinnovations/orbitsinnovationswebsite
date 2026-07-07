@@ -3,18 +3,17 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Menu, X, ArrowRight } from "lucide-react"
+import { Menu, X, ArrowRight, MessageCircle } from "lucide-react"
 import { buttonVariants } from "@/components/ui/button"
 import { OrbitLogo } from "@/components/orbit-logo"
 import { mainNavLinks } from "@/lib/navigation"
+import { getWhatsAppLink } from "@/lib/contact"
 import { cn } from "@/lib/utils"
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
-  const isHome = pathname === "/"
-  const contactHref = isHome ? "#contact" : "/contact"
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -72,10 +71,15 @@ export function SiteHeader() {
           </nav>
 
           <div className="hidden shrink-0 lg:block">
-            <Link href={contactHref} className={cn(buttonVariants({ size: "lg" }), "group")}>
-              Consultation
-              <ArrowRight className="ml-1.5 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </Link>
+            <a
+              href={getWhatsAppLink()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(buttonVariants({ size: "lg" }), "group")}
+            >
+              <MessageCircle className="mr-2 h-4 w-4" />
+              WhatsApp
+            </a>
           </div>
 
           <button
@@ -133,9 +137,15 @@ export function SiteHeader() {
         </nav>
 
         <div className="border-t border-border p-5">
-          <Link href={contactHref} className={cn(buttonVariants({ size: "lg" }), "w-full")}>
-            Consultation
-          </Link>
+          <a
+            href={getWhatsAppLink()}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={cn(buttonVariants({ size: "lg" }), "w-full")}
+          >
+            <MessageCircle className="mr-2 h-4 w-4" />
+            WhatsApp
+          </a>
         </div>
       </aside>
     </>

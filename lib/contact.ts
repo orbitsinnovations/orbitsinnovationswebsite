@@ -1,8 +1,8 @@
 export const CONTACT = {
   email: "orbitsinnovations@gmail.com",
-  phone: "+230 57833020",
-  phoneRaw: "23057833020",
-  whatsAppNumber: "23057833020",
+  phone: "+230 58355940",
+  phoneRaw: "23058355940",
+  whatsAppNumber: "23058355940",
 } as const
 
 export const SOCIAL = {

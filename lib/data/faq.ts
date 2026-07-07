@@ -21,7 +21,7 @@ export const generalFaqs = [
   },
   {
     q: "How do we get started?",
-    a: "Contact us via WhatsApp at +230 57833020 or email orbitsinnovations@gmail.com. We offer a consultation to discuss your goals.",
+    a: "Contact us via WhatsApp at +230 58355940 or email orbitsinnovations@gmail.com. We offer a consultation to discuss your goals.",
   },
   {
     q: "What is MoLedger ERP?",

@@ -1,16 +1,17 @@
 import Image from "next/image"
 import Link from "next/link"
 import {
-  ArrowRight,
   ShieldCheck,
   Zap,
   Headset,
   CheckCircle2,
   Store,
+  MessageCircle,
 } from "lucide-react"
 import { buttonVariants } from "@/components/ui/button"
 import { OrbitMark } from "@/components/orbit-logo"
 import { OrbitalBackground } from "@/components/orbital-background"
+import { getWhatsAppLink } from "@/lib/contact"
 import { cn } from "@/lib/utils"
 
 const badges = [
@@ -40,10 +41,15 @@ export function Hero() {
           </p>
 
           <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row lg:items-start lg:justify-start">
-            <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "group w-full sm:w-auto")}>
-              Get a Consultation
-              <ArrowRight className="ml-1.5 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </Link>
+            <a
+              href={getWhatsAppLink()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(buttonVariants({ size: "lg" }), "group w-full sm:w-auto")}
+            >
+              <MessageCircle className="mr-2 h-4 w-4" />
+              WhatsApp
+            </a>
             <Link
               href="#process"
               className={cn(buttonVariants({ variant: "outline", size: "lg" }), "w-full sm:w-auto")}
@@ -94,7 +100,7 @@ export function Hero() {
               <CheckCircle2 className="h-5 w-5 text-primary" />
               <span className="text-xs font-semibold text-foreground">Automated</span>
             </div>
-            <div className="absolute bottom-4 left-1/4 hidden items-center gap-2 rounded-xl border border-border bg-card px-3 py-2 shadow-lg sm:flex">
+            <div className="absolute bottom-5 left-2 flex items-center gap-1.5 rounded-xl border border-border bg-card px-2.5 py-1.5 shadow-lg sm:bottom-4 sm:left-1/4 sm:gap-2 sm:px-3 sm:py-2">
               <Store className="h-4 w-4 text-primary" />
               <span className="text-xs font-semibold text-foreground">POS Ready</span>
             </div>

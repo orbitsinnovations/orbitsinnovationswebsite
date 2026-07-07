@@ -140,7 +140,7 @@ export function organizationJsonLd() {
     slogan: SITE_TAGLINE,
     description: HOME_SEO.description,
     email: "orbitsinnovations@gmail.com",
-    telephone: "+23057833020",
+    telephone: "+23058355940",
     address: {
       "@type": "PostalAddress",
       addressCountry: "MU",
@@ -152,7 +152,7 @@ export function organizationJsonLd() {
     ],
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "+230-57833020",
+      telephone: "+230-58355940",
       contactType: "customer service",
       email: "orbitsinnovations@gmail.com",
       availableLanguage: ["English", "French"],
@@ -176,7 +176,7 @@ export function localBusinessJsonLd() {
     name: SITE_NAME,
     image: `${SITE_URL}/orbitsinnovationslogolight.png`,
     url: SITE_URL,
-    telephone: "+23057833020",
+    telephone: "+23058355940",
     email: "orbitsinnovations@gmail.com",
     description: HOME_SEO.description,
     address: {
